@@ -1,0 +1,13 @@
+{
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "name": "MayoDatathon",
+            "authenticator": "CLI",
+            "location": "us",
+            "previewLimit": 50,
+            "driver": "BigQuery",
+            "projectId": "ml-mps-trl-fldt08-p-e8e1"
+        }
+    ]
+}

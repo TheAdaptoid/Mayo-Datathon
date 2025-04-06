@@ -1,0 +1,14 @@
+# Setup
+ipykernel
+python-dotenv
+
+# Google cloud
+google-cloud-bigquery
+pandas-gbq
+db-dtypes
+
+# EDA
+numpy
+matplotlib
+seaborn
+scikit-learn
