@@ -1,4 +1,24 @@
-# Mayoclinic Datathon 2025
+---
+tags:
+  - hackathon
+  - research
+  - python
+  - sql
+  - google
+  - healthcare
+aliases:
+  - Mayo Hackathon
+  - Datathon
+---
+
+# Abstract
+
+## Key Terms
+
+- **Sepsis**: A life-threatening condition where the body's response to infection causes tissue damage, organ failure, or death.
+- **Troponin-T**: A protein found in heart muscle, released into the bloodstream when the heart is damaged, often used to diagnose heart attacks.
+
+# Introduction
 
 ## Problem Statement
 
@@ -22,9 +42,10 @@ Sepsis is a life-threatening condition, and early risk stratification is crucial
 ### Exclusion Criteria
 
 - Has any prior heart condition
+- Does not have any Troponin-T lab tests
 - Discharged from the ICU within 24-hours
 
-### Table Structure
+### Main Table Structure
 
 | Column Name               | Data Type | Description                                                                              |
 | ------------------------- | --------- | ---------------------------------------------------------------------------------------- |
@@ -39,6 +60,67 @@ Sepsis is a life-threatening condition, and early risk stratification is crucial
 | max_troponi               | FLOAT     | Maximum troponin level recorded                                                          |
 | non_cardiac_patient       | INTEGER   | Indicator for patients without history of caridac issues or admission for cardiac issues |
 | expired                   | INTEGER   | Indicator for patients who expired while in the ICU                                      |
-| abnormal_troponi          | INTEGER   | Indicator for patients with abnormal troponin levels                                     |
+
+### Predictors Table
+
+| Column Name | Data Type | Description |
+| ----------- | --------- | ----------- |
+|             |           |             |
 
 ## Discretionary Considerations
+
+### Elevated Troponin-T Level Definition
+
+We chose to assign any patient with a Troponin-T value greater than 0.01 ng/mL as having an *abnormal* amount of Troponin-T in their blood. And for patients with multiple Troponin-T lab tests, we chose to only use the value of their *highest* Troponin-T lab test result.
+
+### Early Discharges
+
+To focus on longer term outcomes, patients who were discharged from the ICU (alive or expired) within 24-hours of admittance were not included in our study.
+
+### eICU vs MIMIC-IV
+
+After conducting some initial EDA and research, we decided to switch the primary dataset from MIMIC-IV to eICU. The sourcing methodology for the eICU database aligned better with our interests than that of the MIMIC-IV database.
+
+## Exploratory Data Analysis
+
+### Potential Issues and Biases
+
+#### Survivorship Bias
+
+Patients who died before a Troponin-T measurement could be acquired may be excluded from our curated dataset, and could lead to underestimating its true prognostic value.
+
+#### Selection Bias
+
+The our curated dataset includes only ICU patients, as such, our conclusions may not hold true for *non-ICU admitted* patients.
+
+### Visualizations
+
+- Needs Work
+
+# Conclusion
+
+## Chi-Square
+
+text
+
+## Odds Ratio
+
+text
+
+## Logistic Regression
+
+text
+
+## Interpretation
+
+text
+
+# Discussion
+
+## Limitations
+
+text
+
+## Next Steps
+
+text
